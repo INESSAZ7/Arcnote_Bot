@@ -38,6 +38,8 @@ async def main():
                                 id SERIAL PRIMARY KEY,
                                 telegram_id BIGINT NOT NULL UNIQUE, -- Telegram user ID
                                 username VARCHAR(50), -- @username
+                                first_name VARCHAR(50),
+                                last_name VARCHAR(50),
                                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
                             ); 
                         """

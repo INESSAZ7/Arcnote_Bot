@@ -6,6 +6,7 @@ from aiogram.client.default import DefaultBotProperties
 from aiogram.enums import ParseMode
 from database.connection import get_pg_pool
 from config_data.config import Config, load_config
+from handlers.start_handler import start_router
 
 # Инициализируем логгер
 logger = logging.getLogger(__name__)
@@ -26,8 +27,7 @@ async def main():
     
     # Инициализируем бот и диспетчер
     bot = Bot(
-        token=config.tg_bot.token,
-        default=DefaultBotProperties(parse_mode=ParseMode.HTML)
+        token=config.tg_bot.token
     )
     dp = Dispatcher()
 
@@ -39,6 +39,9 @@ async def main():
         user=config.db.user,
         password=config.db.password,
     )
+
+    # Регистрируем роутеры в диспетчере
+    dp.include_router(start_router)
 
     # Пропускаем накопившиеся апдейты и запускаем polling
     await bot.delete_webhook(drop_pending_updates=True)
