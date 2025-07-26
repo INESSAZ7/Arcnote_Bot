@@ -42,7 +42,7 @@ project/
 │ ├── reminders_handler.py # Управление напоминаниями
 │ └── list_links_handler.py # Просмотр сохранённого
 │
-├── services/
+├── utils/
 │ ├── link_parser.py # Определение типа ресурса
 │ ├── summarizer.py # Парсинг заголовка и текста
 │ ├── language.py # Определение языка текста
