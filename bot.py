@@ -19,7 +19,7 @@ async def main():
 
     # Конфигурируем логирование
     logging.basicConfig(
-        level=logging.getLevelName(level=config.log.level),
+        level=getattr(logging, config.log.level.upper()),
         format=config.log.format
     )
     # Выводим в консоль информацию о начале запуска бота
